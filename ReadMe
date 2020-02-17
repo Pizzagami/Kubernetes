@@ -1,12 +1,19 @@
+		##### Changement Permanent #####
+
 0 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/darwin/amd64/kubectl
 1 chmod +x ./kubectl
 2 kubectl version --client #test
 3 docker script
 4 install brew
 5 brew install minikube #trouver bonne endroit
-			#########
 
-minikube start --vm-driver=vmwarefusion
-minikube status
-minikube dashboard
-kubectl cluster-info
+			#### A refaire a chaque reset #####
+
+1 minikube start --vm-driver=vmwarefusion
+2 minikube status
+3 minikube dashboard
+4 kubectl cluster-info
+5 kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+6 kubectl expose deployment hello-minikube --type=NodePort --port=8080
+7 kubectl get pod			# voir les cluster
+8 minikube service hello-minikube --url # avoir acces au hello word
