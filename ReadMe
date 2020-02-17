@@ -2,7 +2,8 @@
 1 chmod +x ./kubectl
 2 kubectl version --client #test
 3 docker script
-4 brew install minikube #sgoinfre
+4 install brew
+5 brew install minikube #trouver bonne endroit
 			#########
 
 minikube start --vm-driver=vmwarefusion
