@@ -9,11 +9,21 @@
 
 			#### A refaire a chaque reset #####
 
-1 minikube start --vm-driver=vmwarefusion
-2 minikube status
+1 minikube start --vm-driver=vmwarefusion  					# --extra-config=kubelet.MaxPods=5 (passer maxpode a 5)
+2 minikube status								# minikube : context name | kubectl config use-context minikube : reset context
 3 minikube dashboard
 4 kubectl cluster-info
-5 kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
-6 kubectl expose deployment hello-minikube --type=NodePort --port=8080
-7 kubectl get pod			# voir les cluster
-8 minikube service hello-minikube --url # avoir acces au hello word
+
+		#### Hello World ######
+1 kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10 	# k8s.gcr.io is a read-only facade that auto-detects your source
+										# region (us, eu, or asia for now) and pulls from the closest.  To publish
+										# an image, push k8s-staging.gcr.io and it will be synced to the regionals automatically 
+2 kubectl expose deployment hello-minikube --type=NodePort --port=8080
+3 kubectl get pod								# voir les cluster
+4 minikube service hello-minikube --url 					# avoir acces au hello word | minikube service [-n NAMESPACE] [--url] NAME
+
+x  minikube ip
+
+		########
+
+5 minikube docker-env
