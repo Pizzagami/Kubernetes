@@ -1,7 +1,7 @@
 		##### Changement Permanent #####
 
 0 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/darwin/amd64/kubectl
-01 verifier que vmware fusion est intalle ou virtuakbox ou kvm2ou hyperkit
+01 verifier que vmware fusion est intalle | virtuakbox | kvm2 |  hyperkit
 1 chmod +x ./kubectl
 2 kubectl version --client #test
 3 docker script
@@ -21,7 +21,7 @@
 										# region (us, eu, or asia for now) and pulls from the closest.  To publish
 										# an image, push k8s-staging.gcr.io and it will be synced to the regionals automatically 
 2 kubectl expose deployment hello-minikube --type=NodePort --port=8080
-3 kubectl get pod								# voir les cluster
+3 kubectl get pod								# voir les cluster (pod = cluster)
 4 minikube service hello-minikube --url 					# avoir acces au hello word | minikube service [-n NAMESPACE] [--url] NAME
 
 x  minikube ip
@@ -34,10 +34,13 @@ x  minikube ip
 
 		########
 
-5 minikube docker-env
-6 eval $(minikube -p minikube docker-env)
-7 minikube addons enable ingress
-8 kubectl get pods -n kube-system						# test pour voir si ca marche
+5 eval $(minikube -p minikube docker-env)
+6 minikube addons enable ingress
+7 kubectl get pods -n kube-system						# test pour voir si ca marche
 
 		####### Creat Ingress #######
+
+0 docker nginx
+1 yalm service
+2 yalm deploiement
 
