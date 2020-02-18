@@ -35,6 +35,8 @@ x  minikube ip
 
 5 minikube docker-env
 6 eval $(minikube -p minikube docker-env)
+7 minikube addons enable ingress
+8 kubectl get pods -n kube-system						# test pour voir si ca marche
 
 		####### Creat Ingress #######
 
