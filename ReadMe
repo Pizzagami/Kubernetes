@@ -5,7 +5,8 @@
 2 kubectl version --client #test
 3 docker script
 4 install brew
-5 brew install minikube #trouver bonne endroit
+5 export MINIKUBE_HOME="/sgoinfre/goinfre/Perso/selgrabl"  # dans .zshrc
+6 brew install minikube #trouver bonne endroit
 
 			#### A refaire a chaque reset #####
 
@@ -24,6 +25,15 @@
 
 x  minikube ip
 
+		######## hello World App #####
+1 kubectl run web --image=gcr.io/google-samples/hello-app:1.0 --port=8080
+2 kubectl expose deployment web --target-port=8080 --type=NodePort
+3 kubectl get service web
+4 minikube service web --url
+
 		########
 
 5 minikube docker-env
+
+		####### Creat Ingress #######
+
