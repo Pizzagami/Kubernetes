@@ -34,6 +34,7 @@ x  minikube ip
 		########
 
 5 minikube docker-env
+6 eval $(minikube -p minikube docker-env)
 
 		####### Creat Ingress #######
 
