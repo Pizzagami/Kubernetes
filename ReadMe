@@ -1,15 +1,16 @@
 		##### Changement Permanent #####
 
 0 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/darwin/amd64/kubectl
+01 verifier que vmware fusion est intalle ou virtuakbox ou kvm2ou hyperkit
 1 chmod +x ./kubectl
 2 kubectl version --client #test
 3 docker script
-4 install brew
-5 export MINIKUBE_HOME="/sgoinfre/goinfre/Perso/selgrabl"  # dans .zshrc
+4 install brew # 0 chaque reset
 6 brew install minikube #trouver bonne endroit
 
 			#### A refaire a chaque reset #####
 
+0 export MINIKUBE_HOME="/sgoinfre/goinfre/Perso/selgrabl" 
 1 minikube start --vm-driver=vmwarefusion  					# --extra-config=kubelet.MaxPods=5 (passer maxpode a 5)
 2 minikube status								# minikube : context name | kubectl config use-context minikube : reset context
 3 minikube dashboard
