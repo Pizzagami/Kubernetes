@@ -46,7 +46,14 @@ x  minikube ip
 
 		###### Nginx ########
 0 mkdir /run/nginx
-1 nginx -t
+1 nginx
+2 vim /etc/nginx/conf.d/default.conf #remplacer par ce qui a en local
+3 mkdir /var/www/html
+4 rm -rf /var/www/localhost
+
+
+10 nginx -s reload
+
 	### pour modifier nginx ###
 	1 apk add openrc
 	2 rc boot
