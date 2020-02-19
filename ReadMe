@@ -54,7 +54,7 @@ x  minikube ip
 
 10 nginx -s reload
 
-	### pour modifier nginx ###
+	### ALPINE ###
 	1 apk add openrc
 	2 rc boot
 	3 rc-service nginx start
