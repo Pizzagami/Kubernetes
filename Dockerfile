@@ -1,5 +1,4 @@
-FROM alpine
-
+FROM alpine:3.7
 RUN apk update \
 &&  apk upgrade \
 &&  apk add nginx
@@ -7,5 +6,3 @@ RUN apk update \
 COPY ./srcs/nginx/* srcs_docker/
 
 EXPOSE 80 443
-
-ENTRYPOINT ["srcs_docker/docker-entrypoint.sh"]

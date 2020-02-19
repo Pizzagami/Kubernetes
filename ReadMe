@@ -44,3 +44,12 @@ x  minikube ip
 1 yalm service
 2 yalm deploiement
 
+		###### Nginx ########
+0 mkdir /run/nginx
+1 nginx -t
+	### pour modifier nginx ###
+	1 apk add openrc
+	2 rc boot
+	3 rc-service nginx start
+
+		####
