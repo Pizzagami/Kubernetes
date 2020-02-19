@@ -1,18 +1,14 @@
 FROM alpine:3.7
-RUN apk update			\
-&&  apk upgrade			\
-&&  apk add nginx		\
-&&  mkdir /run/nginx		\
-&&  mkdir /var/www/html		\
-&& rm -rf /var/www/localhost	\
-&& apk add openssl		\
-&& apk add ca-certificates	\
-&& mkdir /utils			\
-&& apk add openssh vim sudo			\
-&&	apk add openrc bash			\
-&&	adduser -D test				\
-&&	passwd -d test 				\
-&&	rc-update add sshd			\
+RUN apk update								\
+&&  apk upgrade								\
+&&  apk add nginx openssl ca-certificates openssh vim sudo openrc	\
+&&  mkdir /run/nginx							\
+&&  mkdir /var/www/html							\
+&& rm -rf /var/www/localhost						\
+&& mkdir /utils								\
+&&	adduser -D billy						\
+&&	passwd -d  billy						\
+&&	rc-update add sshd						\
 &&	rc boot					
 
 COPY ./default.conf ./etc/nginx/conf.d/
