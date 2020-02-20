@@ -42,8 +42,8 @@ x  minikube ip
 		####### Creat Ingress #######
 
 0 docker nginx
-1 yalm service
-2 yalm deploiement
+1 yaml service
+2 yaml deploiement
 
 		###### Nginx ########
 0 mkdir /run/nginx
