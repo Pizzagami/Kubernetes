@@ -1,0 +1,4 @@
+CREATE DATABASE bdd;
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'pswd';
+GRANT ALL ON bdd.* TO 'user'@'localhost' IDENTIFIED BY 'pswd' WITH GRANT OPTION;
+FLUSH PRIVILEGES;

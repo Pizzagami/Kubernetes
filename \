@@ -41,11 +41,9 @@ x  minikube ip
 
 		####### Creat Ingress #######
 
-0 docker compose de nginx
-1 minikube addons enable ingress
-2 kubectl run nginx --image=nginx_nginx --port=80
-3  kubectl expose deployment nginx --target-port=80 --type=NodePort # kubectl get service web
-4 
+0 docker nginx
+1 yaml service
+2 yaml deploiement
 
 		###### Nginx ########
 0 mkdir /run/nginx

@@ -1,3 +1,3 @@
 rm -rf ~/.ssh/known_hosts
-docker build -t nginx ./srcs/nginx/.
-docker run --rm -d -p 80:80 -p 443:443 -p 2222:22 --name nginx nginx
+docker-compose -f ./srcs/mysql/docker-compose.yaml up -d
+docker-compose -f ./srcs/nginx/docker-compose.yaml up -d
