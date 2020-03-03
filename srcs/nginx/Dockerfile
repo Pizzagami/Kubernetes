@@ -15,7 +15,7 @@ RUN apk update												\
 
 COPY ./default.conf ./etc/nginx/conf.d/
 
-COPY ./index.nginx-debian.html ./var/www/html
+#COPY ./index.nginx-debian.html ./var/www/html
 
 COPY ./nginx.sh /utils
 

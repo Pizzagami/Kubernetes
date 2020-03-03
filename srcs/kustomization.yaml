@@ -13,11 +13,11 @@ resources:
 - phpmyadmin/phpmyadmin-service.yaml
 - ftps/ftps-service.yaml
 - ingress/ingress-service.yaml
-- telegraf/telegraf-service.yaml
+#- telegraf/telegraf-service.yaml
 - nginx/nginx-deployment.yaml
 - mysql/mysql-deployment.yaml
 - wordpress/wordpress-deployment.yaml
 - phpmyadmin/phpmyadmin-deployment.yaml
 - ftps/ftps-deployment.yaml
 - ingress/ingress-deployment.yaml
-- telegraf/telegraf-deployment.yaml
+#- telegraf/telegraf-deployment.yaml

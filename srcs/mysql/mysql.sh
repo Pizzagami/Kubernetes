@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DB_DATA_PATH="/var/lib/mysql"
 DB_ROOT_PASS="mariadb_root_password"
 DB_USER="mariadb_user"
@@ -9,7 +11,7 @@ mysql_install_db --user=mysql --datadir=${DB_DATA_PATH}
 rc boot
 
 rc-service mariadb start
-
+mysql < srcs_docker/data_base.sql
 mysql -uroot < "/utils/init.sql"
 
 tail -f /dev/null

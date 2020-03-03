@@ -3,18 +3,25 @@ kind: Service
 metadata:
   name: nginx
   labels:
-    app: Nate
-  annotation:
-	kubernetes.io/ingress.class: nginx
+    app: nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
+  type: NodePort
   ports:
-  - port: 80
+  - port: 32080
+    targetPort: 80
+    protocol: TCP
     name: http
-  - port: 443
+  - port: 32443
+    targetPort: 443
+    protocol: TCP
     name: https
-  - port: 22
+  - port: 32022
+    nodePort: 32022
+    targetPort: 22
+    protocol: TCP
     name: ssh
   selector:
-    app: ft_services
-    tier: nginx
-  type: LoadBalancer
+    app: nginx
+  externalName: ng.inx

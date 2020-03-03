@@ -1,8 +1,0 @@
-version: '3'
-services:
-  mysql:
-    build: .
-    container_name: mysql
-    hostname: mysql
-    ports:
-      - "3306:3306"

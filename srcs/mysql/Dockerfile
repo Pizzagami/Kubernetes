@@ -2,7 +2,7 @@ From alpine:3.7
 
 RUN apk upgrade						\
  && apk update						\
- && apk add mariadb mariadb-client openrc	\
+ && apk add mariadb mariadb-client openrc		\
  && rm -f /var/cache/apk/*				\
  && mkdir /utils		
 
