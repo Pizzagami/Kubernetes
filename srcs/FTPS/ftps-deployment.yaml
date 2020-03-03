@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: ftps
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      volumes:
+      - name: ftps-persistent-storage
+        persistentVolumeClaim:
+          claimName: ftps-pv-claim
+      containers:
+      - name: ftps
+        image: ftps_server
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: ftps-persistent-storage
+          mountPath: /ftps/data

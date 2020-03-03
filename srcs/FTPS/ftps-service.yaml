@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+spec:
+  type: NodePort
+  ports:
+  - port: 20
+    nodePort: 20
+    targetPort: 20
+    protocol: TCP
+    name: ftp
+  - port: 21
+    nodePort: 21
+    targetPort: 21
+    protocol: TCP
+    name: ftps
+  - port: 32099
+    nodePort: 32099
+    targetPort: 32099
+    protocol: TCP
+    name: ftps-pasv1
+  - port: 32100
+    nodePort: 32100
+    targetPort: 32100
+    protocol: TCP
+    name: ftps-pasv2
+  selector:
+    app: ftps
+  externalName: ft.services.ftps
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ftps-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /ftps/data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ftps-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi

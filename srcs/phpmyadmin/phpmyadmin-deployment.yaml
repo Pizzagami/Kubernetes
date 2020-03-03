@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+  labels:
+    app: ft_services
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ft_services
+      tier: admin
+  template:
+    metadata:
+      labels:
+        app: ft_services
+        tier: admin
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: phpmyadmin
+        image: phpadm
+        imagePullPolicy: Never
+        env:
+        - name: PMA_HOST
+          value: mysql
+        ports:
+        - containerPort: 80
+          hostPort: 5000

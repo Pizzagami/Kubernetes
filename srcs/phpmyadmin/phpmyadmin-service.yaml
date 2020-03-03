@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+  labels:
+    app: ft_services
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: ft_services
+    tier: admin
+  type: LoadBalancer
+

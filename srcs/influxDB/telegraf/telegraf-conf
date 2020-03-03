@@ -1,0 +1,28 @@
+# https://grafana.com/grafana/dashboards/1177
+# (MySQL container)
+
+
+[agent]
+  collection_jitter = "0s"
+  debug = false
+  flush_interval = "10s"
+  flush_jitter = "0s"
+  hostname = "$HOSTNAME"
+  interval = "10s"
+  logfile = ""
+  metric_batch_size = 1000
+  metric_buffer_limit = 10000
+  omit_hostname = false
+  precision = ""
+  quiet = false
+  round_interval = true
+[[outputs.influxdb]]
+  database = "telegraf"
+  urls = [
+    "http://influxdb.default:8086"
+  ]
+  user_agent = "Telegraf from Cluster"
+[[inputs.mysql]]
+  servers = [
+    "root:password@tcp(mysql.default:3306)/?tls=false"
+  ]

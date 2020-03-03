@@ -1,0 +1,122 @@
+image:
+  repository: "influxdb"
+  tag: "3.7-alpine"
+  pullPolicy: IfNotPresent
+
+livenessProbe:
+  probePath: "/ping"
+
+readinessProbe:
+  probePath: "/ping"
+
+startupProbe:
+  enabled: false
+  probePath: "/ping"
+
+service:
+  type: ClusterIP
+
+persistence:
+  enabled: true
+  annotations:
+  accessMode: ReadWriteOnce
+  size: 2Gi
+
+setDefaultUser:
+  enabled: false
+  image: appropriate/curl:latest
+  activeDeadline: 300
+  restartPolicy: OnFailure
+  user:
+    username: "admin"
+    password: "admin"
+    privileges: "WITH ALL PRIVILEGES"
+
+resources: {}
+podAnnotations: {}
+
+ingress:
+  enabled: true
+  tls: false
+  hostname: influxdb.default
+
+nodeSelector: {}
+affinity: {}
+tolerations: []
+env: {}
+
+config:
+  reporting_disabled: false
+  storage_directory: /var/lib/influxdb
+  rpc:
+    enabled: true
+    bind_address: 8088
+  meta:
+    retention_autocreate: true
+    logging_enabled: true
+  data:
+    query_log_enabled: true
+    cache_max_memory_size: 1073741824
+    cache_snapshot_memory_size: 26214400
+    cache_snapshot_write_cold_duration: 10m0s
+    compact_full_write_cold_duration: 4h0m0s
+    max_series_per_database: 1000000
+    max_values_per_tag: 100000
+    index_version: inmem
+    trace_logging_enabled: false
+  coordinator:
+    write_timeout: 10s
+    max_concurrent_queries: 0
+    query_timeout: 0s
+    log_queries_after: 0s
+    max_select_point: 0
+    max_select_series: 0
+    max_select_buckets: 0
+  retention:
+    enabled: true
+    check_interval: 30m0s
+  shard_precreation:
+    enabled: true
+    check_interval: 10m0s
+    advance_period: 30m0s
+  admin:
+    enabled: false
+    bind_address: 8083
+    https_enabled: false
+    https_certificate: /etc/ssl/influxdb.pem
+  monitor:
+    store_enabled: true
+    store_database: _internal
+    store_interval: 10s
+  subscriber:
+    enabled: true
+    http_timeout: 30s
+    insecure_skip_verify: false
+    ca_certs: ""
+    write_concurrency: 40
+    write_buffer_size: 1000
+  http:
+    enabled: true
+    bind_address: 8086
+    auth_enabled: false
+    flux_enabled: true
+    log_enabled: true
+    write_tracing: false
+    pprof_enabled: true
+    https_enabled: false
+    https_certificate: /etc/ssl/influxdb.pem
+    https_private_key: ""
+    max_row_limit: 10000
+    max_connection_limit: 0
+    shared_secret: "la quatre froamges est la meilleur des pizze"
+    realm: InfluxDB
+    unix_socket_enabled: false
+    bind_socket: /var/run/influxdb.sock
+  continuous_queries:
+    log_enabled: true
+    enabled: true
+    run_interval: 1s
+  logging:
+    format: auto
+    level: info
+    supress_logo: false

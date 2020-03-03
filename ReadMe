@@ -4,11 +4,13 @@
 1 verifier que vmware fusion est intalle | virtuakbox | kvm2 |  hyperkit
 2 chmod +x ./kubectl
 3 kubectl version --client #test
+4 source <(kubectl completion zsh)
 
 		##### A refaire a chaque reset session ####
 4 install brew
-5 export MINIKUBE_HOME="/sgoinfre/goinfre/Perso/selgrabl" 
-5 brew install minikube #trouver bonne endroit
+5 brew install helm
+6 export MINIKUBE_HOME="/sgoinfre/goinfre/Perso/selgrabl" 
+7 brew install minikube #trouver bonne endroit
 
 			#### A refaire a chaque redemarrage #####
 0 docker scripte								# qu'il se lance dans le goinfre
@@ -27,7 +29,8 @@
 
 x  minikube ip
 
-		######## hello World App #####
+		######## hello World App ###
+#
 1 kubectl run web --image=gcr.io/google-samples/hello-app:1.0 --port=8080
 2 kubectl expose deployment web --target-port=8080 --type=NodePort
 3 kubectl get service web
@@ -69,8 +72,13 @@ x  minikube ip
 3 mysql -h database -u qwerty -p qwerty
 4 qwerty
 
-
-truc pour que samuel nique ses grands morts  :
+		#### 
 
       restart_policy:
        condition: on-failure
+
+		#################
+
+docker stack deploy --orchestrator=kubernetes -c docker-compose.yml words
+
+		###############
