@@ -26,6 +26,11 @@ spec:
         env:
         - name: PMA_HOST
           value: mysql
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: ROOT_PASSWORD
         ports:
         - containerPort: 80
           hostPort: 5000

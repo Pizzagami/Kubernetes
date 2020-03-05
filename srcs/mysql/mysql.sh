@@ -11,7 +11,6 @@ mysql_install_db --user=mysql --datadir=${DB_DATA_PATH}
 rc boot
 
 rc-service mariadb start
-mysql < srcs_docker/data_base.sql
 mysql -uroot < "/utils/init.sql"
 
 tail -f /dev/null

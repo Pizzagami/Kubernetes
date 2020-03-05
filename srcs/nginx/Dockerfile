@@ -11,11 +11,12 @@ RUN apk update												\
 &&  sed -e 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' -i /etc/sudoers	\
 &&  adduser -D billy											\
 &&  passwd -d  billy											\
-&&  sed -e 's/^wheel:\(.*\)/wheel:\1,billy/g' -i /etc/group
+&&  sed -e 's/^wheel:\(.*\)/wheel:\1,billy/g' -i /etc/group						\
+&&  rm /etc/nginx/nginx.conf
 
-COPY ./default.conf ./etc/nginx/conf.d/
+COPY ./nginx.conf ./etc/nginx/
 
-#COPY ./index.nginx-debian.html ./var/www/html
+COPY ./index.nginx-debian.html ./var/www/html
 
 COPY ./nginx.sh /utils
 
