@@ -12,7 +12,9 @@ RUN apk update												\
 &&  adduser -D billy											\
 &&  passwd -d  billy											\
 &&  sed -e 's/^wheel:\(.*\)/wheel:\1,billy/g' -i /etc/group						\
-&&  rm /etc/nginx/nginx.conf
+&&  rm /etc/nginx/nginx.conf										\
+&& mkdir /etc/nginx/sites-available									\
+&& mkdir /etc/nginx/sites-enabled
 
 COPY ./nginx.conf ./etc/nginx/
 
@@ -21,6 +23,9 @@ COPY ./index.nginx-debian.html ./var/www/html
 COPY ./nginx.sh /utils
 
 COPY ./sshd_config /etc/ssh/.
+
+COPY ./Default /etc/nginx/sites-available
+COPY ./Default /etc/nginx/sites-enabled
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048\
     -subj '/C=FR/ST=75/L=Paris/O=42/CN=selgrabl'\
