@@ -12,4 +12,5 @@ COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 5000
 
+#CMD ["sh"]
 ENTRYPOINT sh /entrypoint.sh
