@@ -14,7 +14,8 @@ RUN apk update												\
 &&  sed -e 's/^wheel:\(.*\)/wheel:\1,billy/g' -i /etc/group						\
 &&  rm /etc/nginx/nginx.conf										\
 && mkdir /etc/nginx/sites-available									\
-&& mkdir /etc/nginx/sites-enabled
+&& mkdir /etc/nginx/sites-enabled									\
+&& rm /etc/nginx/conf.d/default.conf
 
 COPY ./nginx.conf ./etc/nginx/
 
