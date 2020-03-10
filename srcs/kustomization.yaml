@@ -8,7 +8,7 @@ configMapGenerator:
         #- telegraf/telegraf.conf
 resources:
 - nginx/nginx-service.yaml
-- mysql/mysql-service.yaml
+  #- mysql/mysql-service.yaml
   #- wordpress/wordpress-service.yaml
   #- phpmyadmin/phpmyadmin-service.yaml
   #- ftps/ftps-service.yaml
