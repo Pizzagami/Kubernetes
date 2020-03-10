@@ -25,14 +25,3 @@ spec:
   selector:
     app: nginx
   externalName: ng.inx
-
----
-
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: nginx-ingress
-spec:
-  backend:
-    serviceName: ingress
-    servicePort: 80
