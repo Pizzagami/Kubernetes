@@ -18,4 +18,4 @@ docker build -t nginx_ssh srcs/nginx
 #docker build -t maria srcs/mysql
 
 kubectl apply -k srcs
-
+minikube dashboard
