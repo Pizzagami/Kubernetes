@@ -1,6 +1,26 @@
 #!/bin/sh
 rm -rf ~/.ssh/known_hosts
 
+if [ $# = 1 ]
+then
+
+if [ $1 = "-r" ]
+then
+	minikube delete
+	minikube start --vm-driver=virtualbox
+fi
+
+if [ $1 = "-s" ]
+then
+	minikube start --vm-driver=virtualbox
+fi
+
+if [ $1 = "-d" ]
+then
+	minikube delete
+	exit
+fi
+fi
 MINIKUBE_IP=$(minikube ip)
 minikube addons enable metrics-server
 minikube addons enable ingress

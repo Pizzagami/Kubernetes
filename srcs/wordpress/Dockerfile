@@ -1,8 +1,10 @@
 FROM	alpine:3.7
 
+USER ROOT
+
 RUN apk update \
 && apk upgrade \
-&& apk add nginx  openrc wget
+&& apk add   openrc wget
 
 RUN set -x \
 	&& adduser -u 82 -D -S -G www-data www-data

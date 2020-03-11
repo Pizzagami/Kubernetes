@@ -6,11 +6,32 @@ metadata:
     app: ft_services
 spec:
   ports:
-  - port: 80
+  - name: http
+    protocol: TCP
+    port: 80
+    nodePort: 32500
   selector:
     app: ft_services
     tier: frontend
-  type: LoadBalancer
+  type: NodePort
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wordpress-pv-volume
+  labels:
+    type: local
+    app: ft_services
+spec:
+  storageClassName: manual
+  accessModes:
+  - ReadWriteOnce
+  capacity: 
+    storage: 700Mi
+  hostPath: 
+    path: /data
 
 ---
 
@@ -21,9 +42,9 @@ metadata:
   labels:
     app: ft_services
 spec:
+  storageClassName: manual
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
-
+      storage: 700Mi
