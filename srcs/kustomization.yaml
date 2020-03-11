@@ -11,7 +11,7 @@ resources:
 - ingress/ingress.yaml
 #- telegraf/telegraf-service.yaml
 - nginx/nginx-deployment.yaml
-- mysql/mysql-deployment.yaml
+#- mysql/mysql-deployment.yaml
 #- wordpress/wordpress-deployment.yaml
  #- phpmyadmin/phpmyadmin-deployment.yaml
   #- ftps/ftps-deployment.yaml
