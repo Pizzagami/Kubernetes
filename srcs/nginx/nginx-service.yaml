@@ -9,17 +9,16 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 32080
-    targetPort: 80
+  - port: 80
+    nodePort: 80
     protocol: TCP
     name: http
-  - port: 32443
-    targetPort: 443
+  - port: 443
+    nodePort: 443
     protocol: TCP
     name: https
-  - port: 32022
-    nodePort: 32022
-    targetPort: 22
+  - port: 22
+    nodePort: 2222
     protocol: TCP
     name: ssh
   selector:

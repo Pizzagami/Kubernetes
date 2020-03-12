@@ -36,4 +36,4 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048\
 
 EXPOSE 80 443 22
 
-CMD ["sh"]
+CMD ["sh", "/utils/nginx.sh"]
