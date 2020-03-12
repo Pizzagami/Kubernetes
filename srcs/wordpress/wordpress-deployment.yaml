@@ -19,16 +19,15 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - image: wordpr
-        imagePullPolicy: Never
+      - image: wordpress:4.8-apache
+       # imagePullPolicy: Never
         name: wordpress
         ports:
         - containerPort: 80
-          hostPort: 5050
         volumeMounts:
-        - name: wordpress-persistent-storage
+        - name: wp-persistent-storage
           mountPath: /var/www/html
       volumes:
-      - name: wordpress-persistent-storage
+      - name: wp-persistent-storage
         persistentVolumeClaim:
-          claimName: wordpress-pv-claim
+          claimName: wp-pv-claim

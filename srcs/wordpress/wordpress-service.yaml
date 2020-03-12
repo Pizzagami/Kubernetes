@@ -9,7 +9,7 @@ spec:
   - name: http
     protocol: TCP
     port: 80
-    nodePort: 32500
+    nodePort: 5050
   selector:
     app: ft_services
     tier: frontend
@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: wordpress-pv-volume
+  name: wp-pv-volume
   labels:
     type: local
     app: ft_services
@@ -38,7 +38,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: wordpress-pv-claim
+  name: wp-pv-claim
   labels:
     app: ft_services
 spec:

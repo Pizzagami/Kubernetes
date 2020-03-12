@@ -1,4 +1,15 @@
-CREATE DATABASE bdd;
-CREATE USER 'user'@'localhost' IDENTIFIED BY 'pswd';
-GRANT ALL ON bdd.* TO 'user'@'localhost' IDENTIFIED BY 'pswd' WITH GRANT OPTION;
+CREATE DATABASE wordpress CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+CREATE USER 'root'@'%' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON wordpress.* TO  'selgrabl' WITH GRANT OPTION;
+
+CREATE USER 'selgrabl'@'%' IDENTIFIED BY 'qwertyqwert';
+GRANT ALL PRIVILEGES ON wordpress.* TO  'selgrabl' WITH GRANT OPTION;
+
+CREATE USER 'billy'@'%' IDENTIFIED BY 'billy';
+GRANT UPDATE, SELECT, DROP,  ON wordpress.* TO  'billy' WITH GRANT OPTION;
+
+CREATE USER 'viewer'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON wodpress.* TO  'viewer' WITH GRANT OPTION;
+
 FLUSH PRIVILEGES;
