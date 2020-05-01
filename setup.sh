@@ -6,7 +6,7 @@ then
 
 if [ $1 = "-r" ]
 then
-	minikube deletsss
+	minikube delete
 	minikube start --cpus=2 --disk-size 7Gi --vm-driver virtualbox --extra-config=apiserver.service-node-port-range=1-35000
 fi
 
