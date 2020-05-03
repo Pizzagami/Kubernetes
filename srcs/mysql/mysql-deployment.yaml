@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: mysql
   labels:
-    app: ft_services
+    app: mysql
 spec:
   selector:
     matchLabels:
-      app: ft_services
+      app: mysql
       tier: mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: ft_services
+        app: mysql
         tier: mysql
     spec:
       restartPolicy: Always
@@ -22,6 +22,15 @@ spec:
       - name: mysql
         image: maria
         imagePullPolicy: Never
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        - name: MYSQL_DATABASE
+          value: wordpress
+        - name: MYSQL_USER
+          value: root
+        - name: MYSQL_PASSWORD
+          value: password 
         ports:
         - containerPort: 3306
           name: mysql

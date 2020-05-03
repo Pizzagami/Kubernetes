@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: wordpress
   labels:
-    app: ft_services
+    app: wordpress
 spec:
   ports:
   - name: http
@@ -11,7 +11,7 @@ spec:
     port: 80
     nodePort: 5050
   selector:
-    app: ft_services
+    app: wordpress
     tier: frontend
   type: NodePort
 
@@ -23,13 +23,13 @@ metadata:
   name: wp-pv-volume
   labels:
     type: local
-    app: ft_services
+    app: wordpress
 spec:
   storageClassName: manual
   accessModes:
   - ReadWriteOnce
   capacity: 
-    storage: 700Mi
+    storage: 550Mi
   hostPath: 
     path: /data
 
@@ -40,11 +40,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: wp-pv-claim
   labels:
-    app: ft_services
+    app: wordpress
 spec:
-  storageClassName: manual
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 700Mi
+      storage: 550Mi

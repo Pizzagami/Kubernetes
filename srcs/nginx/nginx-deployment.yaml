@@ -19,5 +19,5 @@ spec:
       restartPolicy: Always
       containers:
       - name: nginx
-        image: nginx
+        image: nginx_ssh
         imagePullPolicy: Never

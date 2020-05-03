@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: mysql
   labels:
-    app: ft_services
+    app: mysql
 spec:
   ports:
   - port: 3306
     targetPort: 3306
   selector:
-    app: ft_services
+    app: mysql
     tier: mysql
   clusterIP: None
   externalName: mysql.default
@@ -25,7 +25,7 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 700Mi
+    storage: 450Mi
   accessModes:
     - ReadWriteOnce
   hostPath:
@@ -37,10 +37,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
   labels:
-    app: ft_services
+    app: mysql
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 500Mi
+      storage: 250Mi

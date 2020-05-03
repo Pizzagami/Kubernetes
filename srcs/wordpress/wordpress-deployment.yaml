@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: wordpress
   labels:
-    app: ft_services
+    app: wordpress
 spec:
   selector:
     matchLabels:
-      app: ft_services
+      app: wordpress
       tier: frontend
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: ft_services
+        app: wordpress
         tier: frontend
     spec:
       restartPolicy: Always
@@ -25,9 +25,9 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: wp-persistent-storage
+        - name: wp-pv-volume
           mountPath: /var/www/html
       volumes:
-      - name: wp-persistent-storage
+      - name: wp-pv-volume
         persistentVolumeClaim:
           claimName: wp-pv-claim
