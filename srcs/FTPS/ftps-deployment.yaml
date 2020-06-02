@@ -16,14 +16,7 @@ spec:
       labels:
         app: ftps
     spec:
-      volumes:
-      - name: ftps-persistent-storage
-        persistentVolumeClaim:
-          claimName: ftps-pv-claim
       containers:
       - name: ftps
         image: ftps_server
         imagePullPolicy: Never
-        volumeMounts:
-        - name: ftps-persistent-storage
-          mountPath: /ftps/data

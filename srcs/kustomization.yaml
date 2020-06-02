@@ -3,16 +3,16 @@ configMapGenerator:
         #files:
         #- telegraf/telegraf.conf
 resources:
-- nginx/nginx-service.yaml
-- mysql/mysql-service.yaml
-- wordpress/wordpress-service.yaml
-  #- phpmyadmin/phpmyadmin-service.yaml
-  #- ftps/ftps-service.yaml
 - ingress/ingress.yaml
-#- telegraf/telegraf-service.yaml
+- nginx/nginx-service.yaml
+  #- mysql/mysql-service.yaml
+  #- wordpress/wordpress-service.yaml
+  #- phpmyadmin/phpmyadmin-service.yaml
+- FTPS/ftps-service.yaml
+  #- telegraf/telegraf-service.yaml
 - nginx/nginx-deployment.yaml
-- mysql/mysql-deployment.yaml
-- wordpress/wordpress-deployment.yaml
- #- phpmyadmin/phpmyadmin-deployment.yaml
-  #- ftps/ftps-deployment.yaml
-#- telegraf/telegraf-deployment.yaml
+  #- mysql/mysql-deployment.yaml
+  #- wordpress/wordpress-deployment.yaml
+  #- phpmyadmin/phpmyadmin-deployment.yaml
+- FTPS/ftps-deployment.yaml
+  #- telegraf/telegraf-deployment.yaml
