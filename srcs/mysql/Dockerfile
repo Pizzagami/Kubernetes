@@ -8,6 +8,7 @@ RUN apk upgrade		                         				\
 
 COPY ./mysql.sh /utils
 COPY ./init.sql /utils
+COPY ./wordpress.sql /utils
 
 EXPOSE 3306
 

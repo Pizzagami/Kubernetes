@@ -47,9 +47,9 @@ IP=$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed
 
 docker build -t nginx_ssh srcs/nginx
 docker build -t ftps_server --build-arg IP=${IP} srcs/FTPS
-#docker build -t wordpr srcs/wordpress
-#docker build -t phpadm srcs/phpmyadmin
-#docker build -t maria srcs/mysql
+docker build -t wordpr srcs/wordpress
+docker build -t phpadm srcs/phpmyadmin
+docker build -t maria srcs/mysql
 
 kubectl apply -k srcs
 minikube dashboard

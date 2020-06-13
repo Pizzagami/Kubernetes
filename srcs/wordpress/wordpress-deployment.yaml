@@ -19,8 +19,8 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - image: wordpress:4.8-apache
-       # imagePullPolicy: Never
+      - image: wordpr
+        imagePullPolicy: Never
         name: wordpress
         ports:
         - containerPort: 80

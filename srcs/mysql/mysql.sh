@@ -12,5 +12,5 @@ rc boot
 
 rc-service mariadb start
 mysql -uroot < "/utils/init.sql"
-
+mysql -uroot < "/utils/wordpress.sql"
 tail -f /dev/null
