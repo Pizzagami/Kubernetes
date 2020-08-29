@@ -32,10 +32,11 @@ then
 fi
 
 fi
+
 MINIKUBE_IP=$(minikube ip)
 minikube addons enable dashboard
 minikube addons enable metrics-server
-minikube addons enable ingress
+
 eval $(minikube docker-env)
 
 #cp srcs/ftps/vsftpd.factoryconf srcs/ftps/vsftpd.conf
