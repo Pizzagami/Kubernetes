@@ -1,16 +1,17 @@
 FROM alpine:3.7
 
-RUN apk update												\
-&& apk upgrade												\
-&& apk add openrc wget php7-fpm php7-pdo_mysql nginx
+RUN apk update	\
+&& apk add wget php7 php7-fpm php7-opcache php7-gd php7-mysqli php7-zlib php7-curl php7-mbstring php7-json php7-session
 
-RUN set -x \
-	&& adduser -u 82 -D -S -G www-data www-data
+RUN mkdir /var/www /utils										\
+&&  cd /var/www												\
+&&  wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz	\
+&&  tar -zxf phpMyAdmin-5.0.2-all-languages.tar.gz							\
+&&  rm -f phpMyAdmin-5.0.2-all-languages.tar.gz
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY entrypoint.sh /entrypoint.sh
+COPY ./config.inc.php /var/www/phpMyAdmin-5.0.2-all-languages/
+COPY ./phpmyadm.sh /utils
 
 EXPOSE 5000
 
-#CMD ["sh"]
-ENTRYPOINT sh /entrypoint.sh
+CMD ["/bin/sh", "/utils/phpmyadm.sh"]
