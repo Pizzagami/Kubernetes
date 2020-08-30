@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine
 RUN apk update												\
 &&  apk upgrade												\
 &&  apk add nginx openssl ca-certificates openssh vim sudo openrc					\
