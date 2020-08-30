@@ -1,16 +1,11 @@
 #!/bin/bash
 
-DB_DATA_PATH="/var/lib/mysql"
-DB_ROOT_PASS="mariadb_root_password"
-DB_USER="mariadb_user"
-DB_PASS="mariadb_user_password"
-MAX_ALLOWED_PACKET="200M"
+openrc
+touch /run/openrc/softlevel
+/etc/init.d/mariadb setup
+sed -i 's/skip-networking/# skip-networking/g' /etc/my.cnf.d/mariadb-server.cnf
+service mariadb restart
 
-mysql_install_db --user=mysql --datadir=${DB_DATA_PATH}
-
-rc boot
-
-rc-service mariadb start
 mysql -uroot < "/utils/init.sql"
-mysql -uroot < "/utils/wordpress.sql"
+
 tail -f /dev/null

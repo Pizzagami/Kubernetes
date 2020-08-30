@@ -1,15 +1,12 @@
-From alpine:3.7
+From alpine
 
-RUN apk upgrade		                         				\
- && apk update						                        \
- && apk add mariadb mariadb-client openrc --no-cache --upgrade bash		\
- && rm -f /var/cache/apk/*			                         	\
- && mkdir /utils		
+RUN apk update && apk add mysql mysql-client openrc
+
+RUN mkdir /utils
 
 COPY ./mysql.sh /utils
 COPY ./init.sql /utils
-COPY ./wordpress.sql /utils
 
 EXPOSE 3306
 
-CMD ["sh", "/utils/mysql.sh"]
+CMD ["/bin/sh", "/utils/mysql.sh"]
