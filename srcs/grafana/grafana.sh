@@ -1,1 +1,1 @@
-php -S 0.0.0.0:3000 -t /var/www/grafana-7.1.5
+cd /var/www/grafana-7.1.5/bin && ./grafana-server
