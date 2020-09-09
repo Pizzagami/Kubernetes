@@ -1,25 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
-  labels:
-    app: mysql
+  name: mysql-deployment
 spec:
   selector:
     matchLabels:
-      app: mysql
-      tier: mysql
+      app: mysql-deployment
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
-        tier: mysql
+        app: mysql-deployment
     spec:
       restartPolicy: Always
       containers:
-      - name: mysql
+      - name: mysql-deployment
         image: maria
         imagePullPolicy: Never
         env:
@@ -33,7 +29,6 @@ spec:
           value: password 
         ports:
         - containerPort: 3306
-          name: mysql
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: "/var/lib/mysql"

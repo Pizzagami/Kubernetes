@@ -2,22 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
-  labels:
-    app: nginx
-  namespace: default
 spec:
   selector:
     matchLabels:
       app: nginx
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: nginx
     spec:
-      restartPolicy: Always
       containers:
       - name: nginx
         image: nginx_ssh
         imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        - containerPort: 22

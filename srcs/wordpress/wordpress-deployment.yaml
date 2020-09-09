@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: wordpress-deployment
   labels:
-    app: wordpress
+    app: wordpress-deployment
 spec:
   selector:
     matchLabels:
-      app: wordpress
-      tier: frontend
+      app: wordpress-deployment
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
-        tier: frontend
+        app: wordpress-deployment
     spec:
       restartPolicy: Always
       containers:
@@ -23,7 +21,7 @@ spec:
         imagePullPolicy: Never
         name: wordpress
         ports:
-        - containerPort: 80
+        - containerPort: 5050
         volumeMounts:
         - name: wp-pv-volume
           mountPath: /var/www/html
