@@ -1,22 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ftps
-  labels:
-    app: ftps
-  namespace: default
+  name: ftps-deployment
 spec:
   selector:
     matchLabels:
-      app: ftps
-  strategy:
-    type: Recreate
+      app: ftps-deployment
   template:
     metadata:
       labels:
-        app: ftps
+        app: ftps-deployment
     spec:
       containers:
-      - name: ftps
+      - name: ftps-deployment
         image: ftps_server
+        volumeMounts:
+          - name: ftps-pv
+            mountPath: /ftp
         imagePullPolicy: Never
+        ports:
+        - containerPort: 20
+        - containerPort: 21
+      volumes:
+      - name: ftps-pv

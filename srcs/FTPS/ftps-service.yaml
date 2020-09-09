@@ -4,26 +4,12 @@ metadata:
   name: ftps-svc
 spec:
   selector:
-    app: grafana-deployment
+    app: ftps-deployment
   type: LoadBalancer
   ports:
-    - name: grafana
-      protocol: TCP
-      port: 3000
-      targetPort: 3000
-
----
-
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: grafana-pvc
-  namespace: default
-  labels:
-    app: grafana-deployment
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 400Mi
+    - name: pftps-20
+      port: 20
+      targetPort: 20
+    - name: pftps-21
+      port: 21
+      targetPort: 21

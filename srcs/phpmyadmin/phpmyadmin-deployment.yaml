@@ -21,13 +21,5 @@ spec:
       - name: phpmyadmin-deployment
         image: phpadm
         imagePullPolicy: Never
-        env:
-        - name: PMA_HOST
-          value: mysql
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-                secretKeyRef:
-                  name: mysql-secrets
-                  key: ROOT_PASSWORD
         ports:
         - containerPort: 5000
