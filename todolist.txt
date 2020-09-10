@@ -1,0 +1,4 @@
+Modifier yaml pour que ces derniers puissent se conneter entre eux
+FTP(S) check passive port casse
+Influxdb & grafana a faire
+Faire sh propre

@@ -28,8 +28,7 @@ $i = 0;
 $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
-/* Server parameters ICI PTET FAIRE AVEC UNE VARIABLE (en dessous)*/
-$cfg['Servers'][$i]['host'] = '172.17.0.2';
+$cfg['Servers'][$i]['host'] = 'mysql-svc.default.svc.cluster.local';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 

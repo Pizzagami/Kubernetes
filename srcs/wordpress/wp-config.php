@@ -31,7 +31,7 @@ define( 'DB_USER', 'wordpressuser' );
 define( 'DB_PASSWORD', 'pswd' );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'svc-mariadb.default.svc.cluster.local' );
+define( 'DB_HOST', 'mysql-svc.default.svc.cluster.local' );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8' );

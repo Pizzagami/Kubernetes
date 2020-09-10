@@ -32,22 +32,35 @@ fi
 
 fi
 
-MINIKUBE_IP=$(minikube ip)
 minikube addons enable dashboard
 minikube addons enable metrics-server
 minikube addons enable metallb
 
 eval $(minikube docker-env)
 
-
-IP=$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p)
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml > /dev/null
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml > /dev/null
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" > /dev/null
 
 docker build -t nginx_ssh srcs/nginx
-docker build -t ftps_server --build-arg IP=${IP} srcs/FTPS
-docker build -t wordpr srcs/wordpress
+docker build -t ftps_server srcs/FTPS
+docker build -t alpine_wordpress srcs/wordpress
 docker build -t phpadm srcs/phpmyadmin
-docker build -t maria srcs/mysql
+docker build -t alpine_mysql srcs/mysql
 
-kubectl apply -k srcs
+kubectl apply -f srcs/nginx/nginx-deployment.yaml
+kubectl apply -f srcs/mysql/mysql-deployment.yaml
+kubectl apply -f srcs/wordpress/wordpress-deployment.yaml
+kubectl apply -f srcs/phpmyadmin/phpmyadmin-deployment.yaml
+kubectl apply -f srcs/FTPS/ftps-deployment.yaml
+kubectl apply -f srcs/metallb.yaml
+kubectl apply -f srcs/nginx/nginx-service.yaml
+kubectl apply -f srcs/mysql/mysql-service.yaml
+kubectl apply -f srcs/wordpress/wordpress-service.yaml
+kubectl apply -f srcs/phpmyadmin/phpmyadmin-service.yaml
+kubectl apply -f srcs/FTPS/ftps-service.yaml
+
+#kubectl apply -f /tmp/42Ft_services/srcs/wordpress/wordpress-deployment.yaml
+#kubectl apply -f /tmp/42Ft_services/srcs/mysql/mysql-deployment.yaml
 
 minikube dashboard

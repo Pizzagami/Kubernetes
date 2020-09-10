@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: mysql-svc
 spec:
+  selector:
+    app: mysql-deployment
   ports:
   - port: 3306
     targetPort: 3306
