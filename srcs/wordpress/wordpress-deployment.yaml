@@ -1,31 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-deployment
+  name: wp-deployment
   labels:
-    app: wordpress-deployment
+    app: wp-deployment
 spec:
   selector:
     matchLabels:
-      app: wordpress-deployment
+      app: wp-deployment
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress-deployment
+        app: wp-deployment
     spec:
       restartPolicy: Always
       containers:
       - image: wordpr
         imagePullPolicy: Never
         name: wordpress
+        env:
+        - name: MYSQL_IP
+          value: mysql-svc.default.svc.cluster.local
         ports:
         - containerPort: 5050
-        volumeMounts:
-        - name: wp-pv-volume
-          mountPath: /var/www/html
-      volumes:
-      - name: wp-pv-volume
-        persistentVolumeClaim:
-          claimName: wp-pv-claim

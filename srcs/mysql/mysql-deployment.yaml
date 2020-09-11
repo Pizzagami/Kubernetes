@@ -18,15 +18,6 @@ spec:
       - name: mysql-deployment
         image: maria
         imagePullPolicy: Never
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: password
-        - name: MYSQL_DATABASE
-          value: wordpress
-        - name: MYSQL_USER
-          value: root
-        - name: MYSQL_PASSWORD
-          value: password 
         ports:
         - containerPort: 3306
         volumeMounts:
