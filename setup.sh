@@ -12,7 +12,7 @@ fi
 
 if [ $1 = "-s" ]
 then
-	minikube start --cpus=2 --disk-size 7Gi --vm-driver docker
+	minikube start --vm-driver docker
 fi
 
 if [ $1 = "-d" ]
@@ -44,23 +44,28 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 
 docker build -t nginx_ssh srcs/nginx
 docker build -t ftps_server srcs/FTPS
-docker build -t alpine_wordpress srcs/wordpress
+docker build -t wordpr srcs/wordpress
 docker build -t phpadm srcs/phpmyadmin
-docker build -t alpine_mysql srcs/mysql
+docker build -t maria srcs/mysql
+docker build -t influx srcs/influxDB/
+docker build -t grafana srcs/grafana
 
 kubectl apply -f srcs/nginx/nginx-deployment.yaml
 kubectl apply -f srcs/mysql/mysql-deployment.yaml
 kubectl apply -f srcs/wordpress/wordpress-deployment.yaml
 kubectl apply -f srcs/phpmyadmin/phpmyadmin-deployment.yaml
 kubectl apply -f srcs/FTPS/ftps-deployment.yaml
+kubectl apply -f srcs/influxDB/influxdb-deployment.yaml
+kubectl apply -f srcs/grafana/grafana-deployment.yaml
+
 kubectl apply -f srcs/metallb.yaml
+
 kubectl apply -f srcs/nginx/nginx-service.yaml
 kubectl apply -f srcs/mysql/mysql-service.yaml
 kubectl apply -f srcs/wordpress/wordpress-service.yaml
 kubectl apply -f srcs/phpmyadmin/phpmyadmin-service.yaml
 kubectl apply -f srcs/FTPS/ftps-service.yaml
+kubectl apply -f srcs/influxDB/influxdb-service.yaml
+kubectl apply -f srcs/grafana/grafana-service.yaml
 
-#kubectl apply -f /tmp/42Ft_services/srcs/wordpress/wordpress-deployment.yaml
-#kubectl apply -f /tmp/42Ft_services/srcs/mysql/mysql-deployment.yaml
-
-minikube dashboard
+#minikube dashboard

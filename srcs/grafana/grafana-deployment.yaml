@@ -17,17 +17,8 @@ spec:
       restartPolicy: Always
       containers:
       - name: grafana-deployment
-        image: grafan
+        image: grafana
         imagePullPolicy: Never
-         env:
-          - name: INFLUXDB_CA_VA_LA
-        volumeMounts:
-          - name: grafana-pv
-            mountPath: /root/grafana/data
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
-      volumes:
-      - name: grafana-pv
-        persistentVolumeClaim:
-            claimName: grafana-pvc

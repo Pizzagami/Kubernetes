@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-svc
+  name: influxdb-svc
 spec:
   selector:
-    app: mysql-deployment
+    app: influxdb-deployment
   ports:
-  - name: mysql
-    port: 3306
-    targetPort: 3306
+  - name: influxdb
+    port: 8086
+    targetPort: 8086
     protocol: TCP
   type: ClusterIP
 
@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: mysql-pv
+  name: influxdb-pv
   labels:
     type: local
 spec:
@@ -30,15 +30,15 @@ spec:
     path: "/data"
   claimRef:
       namespace: default
-      name: mysql-pv-claim
+      name: influxdb-pv-claim
 ---
 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: influxdb-pv-claim
   labels:
-    app: mysql-deployment
+    app: influxdb-deployment
 spec:
   accessModes:
   - ReadWriteOnce

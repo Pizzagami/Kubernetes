@@ -20,8 +20,8 @@ spec:
       - image: wordpr
         imagePullPolicy: Never
         name: wordpress
-        env:
-        - name: MYSQL_IP
-          value: mysql-svc.default.svc.cluster.local
+        #        env:
+        #- name: MYSQL_IP
+        #  value: mysql-svc.default.svc.cluster.local
         ports:
         - containerPort: 5050

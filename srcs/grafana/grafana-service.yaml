@@ -10,20 +10,3 @@ spec:
     protocol: TCP
   selector:
     app: grafana-deployment
-
----
-
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: grafana-pvc
-  namespace: default
-  labels:
-    app: grafana-deployment
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 450Mi
-
