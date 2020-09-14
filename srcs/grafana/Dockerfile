@@ -15,4 +15,4 @@ COPY ./grafana.sh /utils
 
 EXPOSE 3000
 
-CMD ["/bin/sh", "/utils/grafana.sh"]
+CMD ["/bin/sh"]
