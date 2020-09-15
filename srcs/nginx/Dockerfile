@@ -23,6 +23,8 @@ COPY ./default.conf /etc/nginx/conf.d
 
 COPY ./interfaces /etc/network
 
+COPY ./status.sh /utils
+
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048\
     -subj '/C=FR/ST=75/L=Paris/O=42/CN=avan-pra'\
     -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt

@@ -1,4 +1,4 @@
 CREATE DATABASE telegraf;
-CREATE USER admin WITH PASSWORD 'admin' WITH ALL PRIVILEGES;
-CREATE USER user_telegraf WITH PASSWORD 'password';
+CREATE USER influx_user WITH PASSWORD 'password' WITH ALL PRIVILEGES;
+CREATE USER test1212 WITH PASSWORD 'password';
 GRANT ALL ON telegraf TO user_telegraf;

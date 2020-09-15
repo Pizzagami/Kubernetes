@@ -49,6 +49,7 @@ docker build -t phpadm srcs/phpmyadmin
 docker build -t maria srcs/mysql
 docker build -t influx srcs/influxDB/
 docker build -t grafana srcs/grafana
+docker build -t telegraf srcs/telegraf
 
 kubectl apply -f srcs/nginx/nginx-deployment.yaml
 kubectl apply -f srcs/mysql/mysql-deployment.yaml
@@ -57,6 +58,7 @@ kubectl apply -f srcs/phpmyadmin/phpmyadmin-deployment.yaml
 kubectl apply -f srcs/FTPS/ftps-deployment.yaml
 kubectl apply -f srcs/influxDB/influxdb-deployment.yaml
 kubectl apply -f srcs/grafana/grafana-deployment.yaml
+kubectl apply -f srcs/telegraf/telegraf-deployment.yaml
 
 kubectl apply -f srcs/metallb.yaml
 
@@ -67,5 +69,6 @@ kubectl apply -f srcs/phpmyadmin/phpmyadmin-service.yaml
 kubectl apply -f srcs/FTPS/ftps-service.yaml
 kubectl apply -f srcs/influxDB/influxdb-service.yaml
 kubectl apply -f srcs/grafana/grafana-service.yaml
+kubectl apply -f srcs/telegraf/telegraf-service.yaml
 
 #minikube dashboard
