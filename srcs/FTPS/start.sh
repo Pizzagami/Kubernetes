@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 echo -e "password : password" | adduser -h ftp/user -s /sbin/nologin user
