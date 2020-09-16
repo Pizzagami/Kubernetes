@@ -1,3 +1,3 @@
-FTP(S) check passive port casse
-Influxdb & grafana a faire
-Faire sh propre
+remettre bien les containers (propre + r t)
+ftpS
+livenessprobe.sh

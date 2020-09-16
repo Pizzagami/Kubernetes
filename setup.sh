@@ -123,5 +123,4 @@ else
 	services
 	default_credential
 	start_dashboard
-	printf "${Red}${Bold}ft_services started${Unbold}${Default}\n"
 fi
