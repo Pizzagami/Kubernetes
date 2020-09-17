@@ -17,6 +17,11 @@ spec:
       containers:
       - name: mysql-deployment
         image: maria
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - /utils/status.sh
         imagePullPolicy: Never
         ports:
         - containerPort: 3306

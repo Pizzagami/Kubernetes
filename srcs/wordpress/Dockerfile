@@ -13,6 +13,8 @@ COPY ./wp-config.php /var/www/wordpress
 
 COPY ./wordpress.sh /utils
 
+COPY ./status.sh /utils
+
 EXPOSE 5050
 
 CMD ["/bin/sh", "/utils/wordpress.sh"]

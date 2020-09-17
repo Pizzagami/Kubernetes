@@ -18,6 +18,11 @@ spec:
       restartPolicy: Always
       containers:
       - image: wordpr
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - /utils/status.sh
         imagePullPolicy: Never
         name: wordpress
         #        env:

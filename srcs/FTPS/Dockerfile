@@ -13,6 +13,8 @@ ADD	vsftpd.conf /etc/vsftpd/vsftpd.conf
 
 ADD	start.sh /
 
+COPY ./status.sh /utils
+
 RUN { echo "password"; echo "password"; } | adduser user
 
 RUN	chmod 775 start.sh

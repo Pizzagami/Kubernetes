@@ -11,6 +11,7 @@ RUN mkdir /var/www /utils										\
 
 COPY ./config.inc.php /var/www/phpMyAdmin-5.0.2-all-languages/
 COPY ./phpmyadm.sh /utils
+COPY ./status.sh /utils
 
 EXPOSE 5000
 

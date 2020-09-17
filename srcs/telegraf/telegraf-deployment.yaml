@@ -16,6 +16,11 @@ spec:
       containers:
       - name: telegraf
         image: telegraf
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - /utils/status.sh
         imagePullPolicy: Never
         ports:
         - containerPort: 8125

@@ -6,7 +6,8 @@ RUN mkdir /utils
 
 COPY ./mysql.sh /utils
 COPY ./init.sql /utils
+COPY ./status.sh /utils
 
 EXPOSE 3306
 
-CMD ["/bin/sh", "/utils/mysql.sh"]
+MD ["/bin/sh", "/utils/mysql.sh"]

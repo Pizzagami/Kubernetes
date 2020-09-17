@@ -15,6 +15,7 @@ RUN cp -rf /var/www/telegraf-1.15.2/etc/* /etc/ \
 &&  cp -rf /var/www/telegraf-1.15.2/usr/* /usr/
 
 COPY ./telegraf.conf /etc/telegraf/telegraf.conf
+COPY ./status.sh /utils
 
 EXPOSE 8125
 

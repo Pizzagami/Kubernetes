@@ -15,13 +15,11 @@ spec:
       - name: ftps-deployment
         image: ftps_server
         imagePullPolicy: Never
- #       livenessProbe:
-  #        exec:
-   #         command:
-    #        - sh
-     #       - /srcs/livenessprobe.sh
-      #    initialDelaySeconds: 15
-       #   periodSeconds: 3
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - /utils/status.sh
         ports:
         - containerPort: 20
         - containerPort: 21
