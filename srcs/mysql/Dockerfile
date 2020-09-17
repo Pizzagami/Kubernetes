@@ -10,4 +10,4 @@ COPY ./status.sh /utils
 
 EXPOSE 3306
 
-MD ["/bin/sh", "/utils/mysql.sh"]
+CMD ["/bin/sh", "/utils/mysql.sh"]
