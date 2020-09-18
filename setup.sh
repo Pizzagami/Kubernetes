@@ -17,7 +17,7 @@ start_minikube()
 	printf "${Blue}Starting minikube...\n${Default}"
 	minikube start --vm-driver docker > /dev/null
 	if [ "$?" != 0 ];then
-		printf "${Red}Could not start minikube"
+		printf "${Red}Could not start minikube\n"
 		exit 1
 	fi
 	printf "${Blue}Minikube has successfully started\n${Default}"

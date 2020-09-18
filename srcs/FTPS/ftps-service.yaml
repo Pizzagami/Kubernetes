@@ -7,7 +7,7 @@ spec:
     app: ftps-deployment
   type: LoadBalancer
   ports:
-    - name: ftps-20
+    - name: ftps
       port: 20
       targetPort: 20
     - name: ftps-21
@@ -25,13 +25,3 @@ spec:
       port: 21004
     - name: ftps-21005
       port: 21005
-    - name: ftps-21006
-      port: 21006
-    - name: ftps-21007
-      port: 21007
-    - name: ftps-21008
-      port: 21008
-    - name: ftps-21009
-      port: 21009
-    - name: ftps-21010
-      port: 21010
