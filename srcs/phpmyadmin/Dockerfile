@@ -9,9 +9,9 @@ RUN mkdir /var/www /utils										\
 &&  tar -zxf phpMyAdmin-5.0.2-all-languages.tar.gz							\
 &&  rm -f phpMyAdmin-5.0.2-all-languages.tar.gz
 
-COPY ./config.inc.php /var/www/phpMyAdmin-5.0.2-all-languages/
-COPY ./phpmyadm.sh /utils
-COPY ./status.sh /utils
+COPY ./srcs/config.inc.php /var/www/phpMyAdmin-5.0.2-all-languages/
+COPY ./srcs/phpmyadm.sh /utils
+COPY ./srcs/status.sh /utils
 
 EXPOSE 5000
 

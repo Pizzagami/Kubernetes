@@ -8,12 +8,12 @@ RUN openssl req -x509 -nodes -subj '/C=FR/ST=PARIS/L=PARIS/O=selgrabl/CN=localho
 		 -out /etc/ssl/certs/vsftpd.crt
 
 RUN mkdir /utils
-COPY ./start.sh /utils
-COPY ./status.sh /utils
+COPY ./srcs/start.sh /utils
+COPY ./srcs/status.sh /utils
 
 RUN { echo "password"; echo "password"; } | adduser user
 
-ADD	vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY	./srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
 VOLUME	/ftp/ftp
 

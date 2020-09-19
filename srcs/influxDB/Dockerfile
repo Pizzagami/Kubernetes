@@ -4,8 +4,8 @@ RUN apk update && apk add openrc influxdb
 
 RUN mkdir /utils
 
-COPY ./influxdb.sh /utils
-COPY ./influxdb.sql /utils
+COPY ./srcs/influxdb.sh /utils
+COPY ./srcs/influxdb.sql /utils
 
 EXPOSE 8086
 

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: telegraf-deployment
   labels:
-    app: telegraf-deployment
+    app: telegraf
 spec:
   selector:
     matchLabels:

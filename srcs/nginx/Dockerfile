@@ -11,19 +11,13 @@ RUN apk update												\
 &&  passwd -d  user											\
 &&  sed -e 's/^wheel:\(.*\)/wheel:\1,user/g' -i /etc/group
 
-COPY ./wati /var/www/wati
-
-COPY ./motd /etc
-
-COPY ./nginx.sh /utils
-
-COPY ./sshd_config /etc/ssh/.
-
-COPY ./default.conf /etc/nginx/conf.d
-
-COPY ./interfaces /etc/network
-
-COPY ./status.sh /utils
+COPY ./srcs/wati /var/www/wati
+COPY ./srcs/motd /etc
+COPY ./srcs/nginx.sh /utils
+COPY ./srcs/sshd_config /etc/ssh/.
+COPY ./srcs/default.conf /etc/nginx/conf.d
+COPY ./srcs/interfaces /etc/network
+COPY ./srcs/status.sh /utils
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048\
     -subj '/C=FR/ST=75/L=Paris/O=42/CN=avan-pra'\

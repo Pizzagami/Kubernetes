@@ -11,13 +11,13 @@ RUN mkdir /var/www /utils \
 &&  tar -xzf grafana-7.1.5.linux-amd64.tar.gz \
 &&  rm grafana-7.1.5.linux-amd64.tar.gz
 
-COPY ./datasource.yaml /var/www/grafana-7.1.5/conf/provisioning/datasources/
+COPY ./srcs/datasource.yaml /var/www/grafana-7.1.5/conf/provisioning/datasources/
 
-COPY ./dashboard.yaml /var/www/grafana-7.1.5/conf/provisioning/dashboards/
+COPY ./srcs/dashboard.yaml /var/www/grafana-7.1.5/conf/provisioning/dashboards/
 
-COPY ./grafana.sh /utils
+COPY ./srcs/grafana.sh /utils
 
-COPY ./dashboard_overview.json /var/lib/grafana/dashboards/
+COPY ./srcs/dashboard_overview.json /var/lib/grafana/dashboards/
 
 EXPOSE 3000
 

@@ -1,3 +1,0 @@
-remettre bien les containers (propre + r t)
-ftpS
-livenessprobe.sh

@@ -9,11 +9,9 @@ RUN mkdir /var/www /utils										\
 &&  tar -zxf latest-fr_FR.tar.gz									\
 &&  rm -f latest-fr_FR.tar.gz
 
-COPY ./wp-config.php /var/www/wordpress
-
-COPY ./wordpress.sh /utils
-
-COPY ./status.sh /utils
+COPY ./srcs/wp-config.php /var/www/wordpress
+COPY ./srcs/wordpress.sh /utils
+COPY ./srcs/status.sh /utils
 
 EXPOSE 5050
 
