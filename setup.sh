@@ -75,7 +75,7 @@ deployment()
 	kubectl apply -f srcs/telegraf/telegraf-deployment.yaml > /dev/null
 	printf "${Cyan}All deployments have been created\n${Default}"
 	printf "${Cyan}${Bold}Configuring Metallb\n${Default}${Unbold}"
-	kubectl apply -f srcs/metallb.yaml > /dev/null
+	kubectl apply -f srcs/metallb/metallb.yaml > /dev/null
 	printf "${Cyan}${Bold}Metallb configured\n${Default}${Unbold}"
 }
 
@@ -99,6 +99,7 @@ default_credential()
 	printf "nginx      | ${Bold}user${Unbold}:\n"
 	printf "ftps       | ${Bold}user${Unbold}:${Red}${Bold}password${Unbold}${Default}\n"
 	printf "phpmyadmin | ${Bold}admin${Unbold}:${Red}${Bold}admin${Unbold}${Default}\n"
+	printf "wordpress  | ${Bold}admin${Unbold}:${Red}${Bold}admin${Unbold}${Default}\n"
 	printf "grafana    | ${Bold}admin${Unbold}:${Red}${Bold}admin${Unbold}${Default}\n"
 }
 
@@ -109,7 +110,7 @@ start_dashboard()
 }
 
 if [ "$1" == "-R" ];then
-	ln -s /sgoinfre/goinfre/Perso/selgrabl sgoinfre
+	ln -s /sgoinfre/goinfre/Perso/avan-pra sgoinfre
 	sh init_docker.sh
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	cp zshrc ~/.zshrc
