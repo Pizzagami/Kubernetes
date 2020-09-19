@@ -12,4 +12,8 @@ service mariadb restart
 
 mysql -uroot < "/utils/init.sql"
 
+if [ ! -f /var/lib/mysql/wordpress ]; then
+	mysql -h localhost wordpress < /utils/wordpress.sql
+fi
+
 tail -f /dev/null

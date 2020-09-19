@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wp-deployment
+  name: wordpress-deployment
   labels:
     app: wordpress
 spec:
   selector:
     matchLabels:
-      app: wp-deployment
+      app: wordpress-deployment
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wp-deployment
+        app: wordpress-deployment
     spec:
       restartPolicy: Always
       containers:

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wp-svc
+  name: wordpress-svc
 spec:
   selector:
-    app: wp-deployment
+    app: wordpress-deployment
   type: LoadBalancer
   ports:
   - port: 5050
