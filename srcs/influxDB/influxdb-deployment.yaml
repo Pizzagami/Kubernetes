@@ -19,6 +19,12 @@ spec:
       containers:
       - name: influxdb-deployment
         image: influx
+        livenessProbe:
+          exec:
+            command:
+            - service
+            - influxdb
+            - status
         imagePullPolicy: Never
         ports:
         - containerPort: 8086

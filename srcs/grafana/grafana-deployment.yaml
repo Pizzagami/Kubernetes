@@ -20,6 +20,11 @@ spec:
       containers:
       - name: grafana-deployment
         image: grafana
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - /utils/status.sh
         imagePullPolicy: Never
         imagePullPolicy: Never
         ports:

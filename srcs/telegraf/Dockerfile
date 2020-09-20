@@ -16,7 +16,8 @@ RUN cp -rf /var/www/telegraf-1.15.2/etc/* /etc/ \
 
 COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 COPY ./srcs/status.sh /utils
+COPY ./srcs/telegraf.sh /utils
 
 EXPOSE 8125
 
-CMD ["telegraf"]
+CMD ["/bin/sh", "/utils/telegraf.sh"]
