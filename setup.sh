@@ -14,6 +14,13 @@ Unbold="\e[0m"			#--------- unblod
 
 start_minikube()
 {
+	printf "${Blue}Checking minikube version...\n${Default}"
+	minikube version | grep "minikube version: v1.13.0"
+	if [ "$?" != 0 ];then
+		printf "${Red}Please update minikube (https://github.com/Velovo/setupvm42)\n${Default}"
+		exit 1
+	fi
+	printf "${Blue}OK\n${Default}"
 	printf "${Blue}Starting minikube...\n${Default}"
 	minikube start --vm-driver docker > /dev/null
 	if [ "$?" != 0 ];then
